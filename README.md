@@ -19,6 +19,39 @@ Berikut adalah penjelasan singkat mengenai folder utama di dalam direktori `src`
 - **`stores/`**: Manajemen state global menggunakan **Zustand** (AuthStore, LayoutStore).
 - **`utils/`**: Fungsi pembantu (helper) untuk pemformatan angka (`numberUtils.ts`) dan tanggal (`dateUtils.ts`).
 
+## Cara Menjalankan Secara Lokal
+
+**Prerequisites:** Node.js >= 18, akun Supabase
+
+```bash
+# 1. Clone & install dependencies
+git clone <repo-url> ternakklip
+cd ternakklip
+npm install
+
+# 2. Setup environment variables
+cp .env.example .env
+```
+
+Isi `.env` dengan kredensial Supabase:
+```env
+VITE_SUPABASE_URL=https://<project-id>.supabase.co
+VITE_SUPABASE_ANON_KEY=<anon-key>
+```
+
+```bash
+# 3. Jalankan migrasi database
+# Buka Supabase Dashboard → SQL Editor, lalu jalankan file:
+# supabase/migrations/20240401_inventory_mvp.sql
+
+# 4. Jalankan dev server
+npm run dev
+```
+
+Aplikasi berjalan di `http://localhost:5173`.
+
+---
+
 ## Akun Dummy (Testing)
 
 Gunakan akun berikut untuk mencoba fitur aplikasi:
@@ -29,7 +62,7 @@ Gunakan akun berikut untuk mencoba fitur aplikasi:
 | **User** | `user@user.com` | `password123` |
 
 > [!NOTE]
-> Akun di atas adalah akun demo standar. Pastikan data tersebut sudah terdaftar di Supabase Auth proyek Anda.
+> Akun di atas adalah akun demo standar. Pastikan data tersebut sudah terdaftar di Supabase Auth proyek.
 
 ## Supabase & Real-time
 
