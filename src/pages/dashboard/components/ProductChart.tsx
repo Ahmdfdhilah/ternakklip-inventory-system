@@ -8,6 +8,7 @@ import {
   Legend
 } from 'recharts';
 import { CHART_OTHER_COLOR } from '@/constants';
+import { formatNumber } from '@/utils/numberUtils';
 
 interface CategoryStock {
   name: string;
@@ -30,7 +31,7 @@ const CustomTooltip = ({ active, payload }: any) => {
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full" style={{ backgroundColor: payload[0].fill }} />
           <p className="text-xs text-muted-foreground">
-            Stok: <span className="font-medium text-foreground">{data.count} unit</span>
+            Stok: <span className="font-medium text-foreground">{formatNumber(data.count)} unit</span>
           </p>
         </div>
         <p className="text-[10px] text-muted-foreground mt-1 italic">
@@ -104,7 +105,7 @@ export function ProductChart({ data, loading }: ProductChartProps) {
                   dy={-15}
                   className="fill-foreground font-bold text-3xl tabular-nums"
                 >
-                  {data[0]?.total || 0}
+                  {formatNumber(data[0]?.total || 0)}
                 </text>
                 <text
                   x="50%"
