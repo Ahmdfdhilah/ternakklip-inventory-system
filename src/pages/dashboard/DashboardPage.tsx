@@ -100,28 +100,28 @@ export function DashboardHero({ userData }: DashboardHeroProps) {
       </div>
       <CardContent className="py-4 px-6 relative z-10">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <Avatar className="h-14 w-14 border-2 border-primary-foreground/30 shrink-0">
+          <div className="flex items-center gap-3 min-w-0">
+            <Avatar className="h-12 w-12 sm:h-14 sm:w-14 border-2 border-primary-foreground/30 shrink-0">
               <AvatarImage src={userData?.avatar_path ?? undefined} />
               <AvatarFallback className="text-base font-semibold bg-primary-foreground/20 text-primary-foreground">
                 {userData?.name?.slice(0, 2).toUpperCase() ?? 'U'}
               </AvatarFallback>
             </Avatar>
-            <div>
+            <div className="min-w-0">
               <p className="text-primary-foreground/70 text-sm font-light">Selamat datang,</p>
-              <p className="text-primary-foreground text-3xl font-semibold leading-tight">
+              <p className="text-primary-foreground text-xl sm:text-3xl font-semibold leading-tight truncate">
                 {userData?.name ?? '—'}
               </p>
             </div>
           </div>
 
-          <div className="flex flex-col items-start sm:items-end gap-1.5">
-            <span className="text-3xl font-semibold tracking-wider text-primary-foreground tabular-nums">
-              {formattedTime} <span className="text-lg font-light">WIB</span>
+          <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-1.5">
+            <span className="text-xl sm:text-3xl font-semibold tracking-wider text-primary-foreground tabular-nums">
+              {formattedTime} <span className="text-sm sm:text-lg font-light">WIB</span>
             </span>
             <div className="flex items-center gap-2 bg-primary-foreground/10 py-1.5 px-3 rounded-full">
-              <Calendar className="w-3.5 h-3.5 text-primary-foreground/80" />
-              <p className="text-sm font-medium text-primary-foreground">{formattedDate}</p>
+              <Calendar className="w-3.5 h-3.5 text-primary-foreground/80 shrink-0" />
+              <p className="text-xs sm:text-sm font-medium text-primary-foreground whitespace-nowrap">{formattedDate}</p>
             </div>
           </div>
         </div>
