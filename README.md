@@ -61,14 +61,14 @@ Gunakan akun berikut untuk mencoba fitur aplikasi:
 | **Super Admin** | `admin@admin.com` | `password123` |
 
 > [!NOTE]
-> Akun di atas adalah akun demo standar. Pastikan data tersebut sudah terdaftar di Supabase Auth proyek.
+> Akun di atas adalah akun demo standar. Pastikan data tersebut sudah terdaftar di Supabase Auth proyek jika Anda membuat ulang proyek ini.
 
 ## Supabase & Real-time
 
 Proyek ini menggunakan **Supabase** sebagai backend:
 - **Database**: PostgreSQL dengan Row Level Security (RLS).
 - **Authentication**: Email/Password login.
-- **Real-time**: Fitur Realtime diaktifkan pada tabel `products`, `inventory_logs`, dan `notifications` untuk update dashboard instan tanpa refresh.
+- **Real-time**: Fitur Realtime diaktifkan pada tabel `products` untuk update dashboard instan tanpa refresh.
 
 ## Perubahan Skema Database
 
@@ -79,7 +79,7 @@ Saya melakukan modernisasi skema database dari versi awal untuk mendukung fitur 
 2.  **`products`**:
     - Menambah `min_stock_level`: Untuk sistem alert stok rendah.
     - Menambah `category_id`: Menghubungkan produk dengan kategorinya.
-    - Menambah `sku`, `price`, dan `image_url`: Untuk detail produk yang lebih profesional.
+    - Menambah `sku`, `price`: Untuk detail produk yang lebih profesional.
 
 ### Alasan Perubahan:
 Skema awal (hanya tabel `products` minimalis) tidak mendukung visualisasi data yang kaya dan sistem peringatan stok. Dengan skema baru, operasional tim menjadi lebih efisien karena dapat melihat distribusi stok per kategori dan mendapatkan notifikasi otomatis saat stok mendekati batas minimum.
