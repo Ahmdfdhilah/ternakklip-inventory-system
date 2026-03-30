@@ -25,7 +25,7 @@ Berikut adalah penjelasan singkat mengenai folder utama di dalam direktori `src`
 
 ```bash
 # 1. Clone & install dependencies
-git clone <repo-url> ternakklip
+git clone https://github.com/Ahmdfdhilah/ternakklip-inventory-system ternakklip
 cd ternakklip
 npm install
 
@@ -88,11 +88,11 @@ Skema awal (hanya tabel `products` minimalis) tidak mendukung visualisasi data y
 
 Saya menggunakan **Claude Code** (AI assistant dari Anthropic) sebagai alat bantu utama selama pengembangan proyek ini.
 
-Yang membedakan workflow saya adalah penggunaan **custom agent rules** — sekumpulan instruksi dan konteks yang saya simpan di folder `agents/` (masuk ke git ignore) dan saya terapkan secara konsisten ke setiap sesi kerja. Rules ini mendefinisikan bagaimana AI harus berperilaku: mulai dari konvensi penamaan, struktur folder, cara menulis komponen React, hingga pola service layer yang konsisten dengan codebase.
+Yang membedakan workflow saya adalah penggunaan **custom agent rules** sekumpulan instruksi dan konteks yang saya simpan di folder `agents/` (masuk ke git ignore) dan saya terapkan secara konsisten ke setiap sesi kerja. Rules ini mendefinisikan bagaimana AI harus berperilaku: mulai dari konvensi penamaan, struktur folder, cara menulis komponen React, hingga pola service layer yang konsisten dengan codebase.
 
 **Cara kerjanya:**
-1. Sebelum memulai task, saya load rules yang relevan ke dalam konteks AI — misalnya rules untuk arsitektur service layer, atau rules untuk komponen UI.
+1. Sebelum memulai task, saya load rules yang relevan ke dalam konteks AI misalnya rules untuk arsitektur service layer, atau rules untuk komponen UI.
 2. AI lalu generate atau memodifikasi kode mengikuti pola yang sudah saya tetapkan, bukan pola generik.
 3. Hasilnya adalah kode yang terasa konsisten dan "punya suara yang sama" dari awal hingga akhir, karena AI selalu mengacu pada rules yang sama.
 
-Pendekatan ini menghemat waktu signifikan karena saya tidak perlu menjelaskan ulang konteks di setiap percakapan baru — rules sudah menjadi "memori jangka panjang" yang portable dan reusable lintas project.
+Pendekatan ini menghemat waktu signifikan karena saya tidak perlu menjelaskan ulang konteks di setiap percakapan baru rules sudah menjadi "memori jangka panjang" yang portable dan reusable lintas project.
