@@ -48,7 +48,7 @@ VITE_SUPABASE_ANON_KEY=<anon-key>
 npm run dev
 ```
 
-Aplikasi berjalan di `http://localhost:5173`.
+Aplikasi berjalan di `http://localhost:5178`.
 
 ---
 
@@ -59,7 +59,6 @@ Gunakan akun berikut untuk mencoba fitur aplikasi:
 | Role | Email | Password |
 |------|-------|----------|
 | **Super Admin** | `admin@admin.com` | `password123` |
-| **User** | `user@user.com` | `password123` |
 
 > [!NOTE]
 > Akun di atas adalah akun demo standar. Pastikan data tersebut sudah terdaftar di Supabase Auth proyek.
