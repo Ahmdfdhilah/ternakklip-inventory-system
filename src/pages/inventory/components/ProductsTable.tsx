@@ -38,7 +38,7 @@ import {
 } from '@/components/ui/empty';
 import type { Product } from '@/services/products/types';
 import { SortableHeader } from '@/components/common/SortableHeader';
-import { formatCurrency } from '@/utils/numberUtils';
+import { formatCurrency, formatNumber } from '@/utils/numberUtils';
 import { formatDate } from '@/utils/dateUtils';
 
 interface Column {
@@ -87,35 +87,35 @@ export const ProductsTable = ({
 
   const headerRow = (
     <TableRow>
-      <SortableHeader field="name" sortBy={sortBy} sortDir={sortDir} onSort={onSort}>
+      <SortableHeader field="name" sortBy={sortBy} sortDir={sortDir} onSort={onSort} className="w-full">
         Produk
       </SortableHeader>
-      
+
       {visibleCols.category && (
-        <SortableHeader field="category_id" sortBy={sortBy} sortDir={sortDir} onSort={onSort}>
+        <SortableHeader field="category_id" sortBy={sortBy} sortDir={sortDir} onSort={onSort} className="whitespace-nowrap">
           Kategori
         </SortableHeader>
       )}
 
       {visibleCols.sku && (
-        <SortableHeader 
-          field="sku" 
-          sortBy={sortBy} 
-          sortDir={sortDir} 
+        <SortableHeader
+          field="sku"
+          sortBy={sortBy}
+          sortDir={sortDir}
           onSort={onSort}
-          className="hidden md:table-cell"
+          className="hidden md:table-cell whitespace-nowrap"
         >
           SKU
         </SortableHeader>
       )}
 
       {visibleCols.stock && (
-        <SortableHeader 
-          field="stock_count" 
-          sortBy={sortBy} 
-          sortDir={sortDir} 
+        <SortableHeader
+          field="stock_count"
+          sortBy={sortBy}
+          sortDir={sortDir}
           onSort={onSort}
-          className="text-right"
+          className="text-right whitespace-nowrap"
           containerClassName="justify-end"
         >
           Stok
@@ -123,12 +123,12 @@ export const ProductsTable = ({
       )}
 
       {visibleCols.price && (
-        <SortableHeader 
-          field="price" 
-          sortBy={sortBy} 
-          sortDir={sortDir} 
+        <SortableHeader
+          field="price"
+          sortBy={sortBy}
+          sortDir={sortDir}
           onSort={onSort}
-          className="text-right hidden lg:table-cell"
+          className="text-right hidden lg:table-cell whitespace-nowrap"
           containerClassName="justify-end"
         >
           Harga
@@ -136,12 +136,12 @@ export const ProductsTable = ({
       )}
 
       {visibleCols.updated_at && (
-        <SortableHeader 
-          field="last_updated" 
-          sortBy={sortBy} 
-          sortDir={sortDir} 
+        <SortableHeader
+          field="last_updated"
+          sortBy={sortBy}
+          sortDir={sortDir}
           onSort={onSort}
-          className="hidden xl:table-cell"
+          className="hidden xl:table-cell whitespace-nowrap"
         >
           Terakhir
         </SortableHeader>
@@ -221,7 +221,7 @@ export const ProductsTable = ({
         <TableBody>
           {products.map((product) => (
             <TableRow key={product.id} className="hover:bg-muted/30 transition-colors">
-              <TableCell>
+              <TableCell className="max-w-0">
                 <div className="flex flex-col min-w-0">
                   <p className="text-sm font-medium truncate">{product.name}</p>
                   <p className="text-xs text-muted-foreground lg:hidden">
@@ -245,7 +245,7 @@ export const ProductsTable = ({
               {visibleCols.stock && (
                 <TableCell className="text-right">
                   <span className={`text-sm font-medium ${product.stock_count <= product.min_stock_level ? 'text-destructive animate-pulse' : ''}`}>
-                    {product.stock_count}
+                    {formatNumber(product.stock_count)}
                   </span>
                 </TableCell>
               )}

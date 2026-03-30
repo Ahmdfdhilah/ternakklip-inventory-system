@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Package, AlertTriangle, ListChecks, TrendingUp } from 'lucide-react';
+import { Package, AlertTriangle, ListChecks } from 'lucide-react';
+import { formatNumber } from '@/utils/numberUtils';
 
 interface DashboardStatsProps {
   stats: {
@@ -36,18 +37,10 @@ export function DashboardStats({ stats, loading }: DashboardStatsProps) {
       color: 'text-destructive',
       bg: 'bg-destructive/10',
     },
-    {
-      title: 'Perputaran',
-      value: '+12%',
-      icon: TrendingUp,
-      description: '7 hari terakhir',
-      color: 'text-orange-500',
-      bg: 'bg-orange-500/10',
-    },
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {cards.map((card) => (
         <Card key={card.title} className="border-none shadow-sm overflow-hidden relative">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -57,7 +50,7 @@ export function DashboardStats({ stats, loading }: DashboardStatsProps) {
             </div>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{loading ? '...' : card.value}</div>
+            <div className="text-2xl font-bold">{loading ? '...' : formatNumber(card.value)}</div>
             <p className="text-xs text-muted-foreground mt-1">
               {card.description}
             </p>

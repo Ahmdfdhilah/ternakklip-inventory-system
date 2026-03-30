@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import type { Product } from '@/services/products/types';
 import { formatRelativeTime } from '@/utils/dateUtils';
+import { formatNumber } from '@/utils/numberUtils';
 import { Package } from 'lucide-react';
 
 interface LatestProductsProps {
@@ -43,7 +44,7 @@ export function LatestProducts({ products, loading }: LatestProductsProps) {
                 </div>
                 <div className="flex flex-col items-end gap-0.5 shrink-0 pl-2">
                   <p className="text-xs font-bold tabular-nums">
-                    {product.stock_count} 
+                    {formatNumber(product.stock_count)}
                     <span className="text-[10px] font-normal text-muted-foreground ml-1">unit</span>
                   </p>
                   {product.category?.name && (
